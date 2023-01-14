@@ -10,9 +10,7 @@ const app = express();
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use(cors({
-    origin:["http://localhost:3000/","https://mern-task-manager-app-j7tz.onrender.com"]
-}));
+app.use(cors());
 app.use("/api/v1/tasks",taskRoutes)
 
 app.get("/", ((req, res) => { 
