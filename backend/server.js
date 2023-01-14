@@ -7,10 +7,15 @@ const cors = require('cors');
 
 const app = express();
 
+const corsOptions = {
+  origin: 'https://mern-task-manager-app-j7tz.onrender.com',
+  optionsSuccessStatus: 200 
+}
+
 //middleware
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use("/api/v1/tasks",taskRoutes)
 
 app.get("/", ((req, res) => { 
